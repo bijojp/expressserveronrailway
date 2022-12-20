@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000 ;
 
 
 
-const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb.net/';
+const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb.net';
 
 mongoose.connect(mongodbUri);
 
