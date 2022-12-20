@@ -4,13 +4,13 @@ import cors from 'cors'
 
 import mongoose from 'mongoose';
 
-const app = express()
-app.use(express.json())
-const port = process.env.PORT || 3000
+const app = express();
+app.use(express.json());
+const port = process.env.PORT || 3000 || 5863 ;
 
 
 
-const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb.net/gamedata'
+const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb.net/gamedata';
 
 mongoose.connect(mongodbUri);
 
@@ -116,17 +116,17 @@ mongoose.connect(mongodbUri);
 
 
 app.get('/water', (req, res) => {
-  console.log(`${req.ip} is asking for water`)
-  res.send('Have some water')
+  console.log(`${req.ip} is asking for water`);
+  res.send('Have some water');
 })
 
 app.get('/food', (req, res) => {
-    console.log(`${req.ip} is asking for food`) 
-    res.send('Have some food')
+    console.log(`${req.ip} is asking for food`) ;
+    res.send('Have some food');
   })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`);
 })
 
 // 10.187.27.14
