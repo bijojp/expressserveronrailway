@@ -18,98 +18,98 @@ mongoose.connect(mongodbUri);
 // name:String,
 // email: String,
 // id:Number
-// }
+// // }
 
 
-let gameSchema = new mongoose.Schema({
-    name:String,
-    email: String,
-    id:Number
-})
+// let gameSchema = new mongoose.Schema({
+//     name:String,
+//     email: String,
+//     id:Number
+// })
 
-const monmodel = model("NEWCOL",gameSchema);
+// const monmodel = model("NEWCOL",gameSchema);
 
-app.post('/adddata', (req, res) => {
+// app.post('/adddata', (req, res) => {
 
-    const body = req.body;
+//     const body = req.body;
 
-    if(
-        !body.name ||
-        !body.email ||
-        !body.id
-    ){
-        res.status(400).send(`required parameter missing`)
-        return;
-    }
+//     if(
+//         !body.name ||
+//         !body.email ||
+//         !body.id
+//     ){
+//         res.status(400).send(`required parameter missing`)
+//         return;
+//     }
 
-    monmodel.create({
+//     monmodel.create({
 
-        name:body.name,
-        email: body.email,
-        id:body.id,
-    },
-        (err, saved) => {
-            if (!err) {
-                console.log(saved);
+//         name:body.name,
+//         email: body.email,
+//         id:body.id,
+//     },
+//         (err, saved) => {
+//             if (!err) {
+//                 console.log(saved);
 
-                res.send({
-                    message: "your data is saved"
-                })
-            } else {
-                res.status(500).send({
-                    message: "server error"
-                })
-            }
-        })
+//                 res.send({
+//                     message: "your data is saved"
+//                 })
+//             } else {
+//                 res.status(500).send({
+//                     message: "server error"
+//                 })
+//             }
+//         })
 
-        app.get('/getdatas', (req, res) => {
+//         app.get('/getdatas', (req, res) => {
 
-            monmodel.find({}, (err, data) => {
-                if (!err) {
-                    res.send({
-                        message: "here is you todo list",
-                        data: data
-                    })
-                } else {
-                    res.status(500).send({
-                        message: "server error"
-                    })
-                }
-            });
-        })
+//             monmodel.find({}, (err, data) => {
+//                 if (!err) {
+//                     res.send({
+//                         message: "here is you todo list",
+//                         data: data
+//                     })
+//                 } else {
+//                     res.status(500).send({
+//                         message: "server error"
+//                     })
+//                 }
+//             });
+//         })
 
 
-        app.get('/getdata/:id', (req, res) => {
+//         app.get('/getdata/:id', (req, res) => {
 
-            const id = req.params.id;
+//             const id = req.params.id;
 
-            monmodel.findOne({_id:id}, (err, data) => {
-                if (!err) {
+//             monmodel.findOne({_id:id}, (err, data) => {
+//                 if (!err) {
 
-                    if(data){
-                        res.send({
-                            message: "here is you todo list",
-                            data: data
-                        })
-                    }else{
-                        res.status(404).send({
-                            message: "id not found"
-                        })
-                    }
+//                     if(data){
+//                         res.send({
+//                             message: "here is you todo list",
+//                             data: data
+//                         })
+//                     }else{
+//                         res.status(404).send({
+//                             message: "id not found"
+//                         })
+//                     }
                     
 
-                } else {
-                    res.status(500).send({
-                        message: "server error"
-                    })
-                }
-            });
-        })
+//                 } else {
+//                     res.status(500).send({
+//                         message: "server error"
+//                     })
+//                 }
+//             });
+//         })
 
 
         
 
-})
+// })
 
 
 
