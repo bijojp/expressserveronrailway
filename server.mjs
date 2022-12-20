@@ -6,11 +6,11 @@ import mongoose from 'mongoose';
 
 const app = express();
 app.use(express.json());
-const port = process.env.PORT || 3000 || 5863 ;
+const port = process.env.PORT || 3000 ;
 
 
 
-const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb.net/gamedata';
+const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb.net/';
 
 mongoose.connect(mongodbUri);
 
