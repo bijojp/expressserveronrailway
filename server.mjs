@@ -22,7 +22,7 @@ const corsOptions ={
  }
  
  app.use(cors(corsOptions)) 
- 
+
 const port = process.env.PORT || 3000 ;
 
 
@@ -32,20 +32,19 @@ const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb
 mongoose.connect(mongodbUri);
 
 const sch = {
-    name:String,
-    email:String,
-    id:Number,
+    RandomNumber:Number,
+    wrongAttemptCountArray:Array,
+
 }
 
-const monmodel = mongoose.model("NEWCOL",sch);
+const monmodel = mongoose.model("cardgamedata",sch);
 
 app.post("/post",async(req,res)=>{
     console.log("inside post function");
 
     const data = new monmodel({
-        name:req.body.name,
-        email:req.body.email,
-        id:req.body.id,
+        RandomNumber:req.body.RandomNumber,
+        wrongAttemptCountArray:req.body.wrongAttemptCountArray,
     })
 
     const val = await data.save();
