@@ -31,13 +31,13 @@ const mongodbUri = 'mongodb+srv://bijo:TfE68elk91rxn7zV@cluster0.gbjr68m.mongodb
 
 mongoose.connect(mongodbUri);
 
-const sch = {
-    RandomNumber:Number,
-    wrongAttemptCountArray:Array,
+// const sch = {
+//     RandomNumber:Number,
+//     wrongAttemptCountArray:Array,
 
-}
+// }
 
-const monmodel = mongoose.model("cardgamedata",sch);
+// const monmodel = mongoose.model("cardgamedata",sch);
 
 app.post("/post",async(req,res)=>{
     console.log("inside post function");
