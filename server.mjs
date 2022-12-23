@@ -42,7 +42,15 @@ mongoose.connect(mongodbUri);
 app.post("/post",async(req,res)=>{
     console.log("inside post function");
 
-    const data = mongoose.model({
+    const sch = {
+    RandomNumber:Number,
+    wrongAttemptCountArray:Array,
+
+    }
+
+    const monmodel = mongoose.model("cardgamedata",sch);
+
+    const data = new monmodel({
         RandomNumber:req.body.RandomNumber,
         wrongAttemptCountArray:req.body.wrongAttemptCountArray,
     })
