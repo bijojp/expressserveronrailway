@@ -64,21 +64,21 @@ app.post("/postcardgamedata",async(req,res)=>{
 app.post("/postsomeotherdata",async(req,res)=>{
     console.log("inside post function");
 
-    const sch = {
+    const sch1 = {
     totalTime:Number,
     unixTime:Number,
 
     }
 
-    const monmodel = mongoose.model("cardgamedata",sch);
+    const monmodel = mongoose.model("timedata",sch1);
 
-    const data = new monmodel({
+    const data1 = new monmodel({
         totalTime:req.body.totalTime,
         unixTime:req.body.unixTime,
     })
 
-    const val = await data.save();
-    res.json(val);
+    const val1 = await data1.save();
+    res.json(val1);
 
 
 })
