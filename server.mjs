@@ -42,46 +42,34 @@ mongoose.connect(mongodbUri);
 const sch = {
     RandomNumber:Number,
     wrongAttemptCountArray:Array,
-
     }
-
 const monmodel = mongoose.model("cardgamedata",sch);
 
 const sch1 = {
     totalTime:Number,
     unixTime:Number,
-
     }
-
 const monmodel1 = mongoose.model("timedata",sch1);
 
 
 app.post("/postcardgamedata",async(req,res)=>{
-    console.log("inside post function");
-
+    // console.log("inside post function");
     const data = new monmodel({
         RandomNumber:req.body.RandomNumber,
         wrongAttemptCountArray:req.body.wrongAttemptCountArray,
     })
-
     const val = await data.save();
     res.json(val);
 })
 
 app.post("/postsomeotherdata",async(req,res)=>{
-    console.log("inside post function");
-
-
-
-    const data1 = new monmodel1({
+    // console.log("inside post function");
+    const data = new monmodel1({
         totalTime:req.body.totalTime,
         unixTime:req.body.unixTime,
     })
-
-    const val1 = await data1.save();
-    res.json(val1);
-
-
+    const val = await data.save();
+    res.json(val);
 })
 
 
