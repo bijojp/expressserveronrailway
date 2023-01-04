@@ -52,8 +52,8 @@ const sch1 = {
 const monmodel1 = mongoose.model("timedata",sch1);
 
 const sch2 = {
-    totalTime:Number,
-    unixTime:Number,
+    pinCode:Number,
+    distance:Number,
     }
 const monmodel2 = mongoose.model("liftdata",sch2);
 
