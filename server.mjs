@@ -51,6 +51,12 @@ const sch1 = {
     }
 const monmodel1 = mongoose.model("timedata",sch1);
 
+const sch2 = {
+    totalTime:Number,
+    unixTime:Number,
+    }
+const monmodel2 = mongoose.model("liftdata",sch2);
+
 
 app.post("/postcardgamedata",async(req,res)=>{
     // console.log("inside post function");
@@ -67,6 +73,17 @@ app.post("/postsomeotherdata",async(req,res)=>{
     const data = new monmodel1({
         totalTime:req.body.totalTime,
         unixTime:req.body.unixTime,
+    })
+    const val = await data.save();
+    res.json(val);
+})
+
+
+app.post("/postliftdata",async(req,res)=>{
+    // console.log("inside post function");
+    const data = new monmodel2({
+        pinCode:req.body.pinCode,
+        distance:req.body.distance,
     })
     const val = await data.save();
     res.json(val);
